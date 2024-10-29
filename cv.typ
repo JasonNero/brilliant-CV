@@ -52,13 +52,13 @@
     text(
       font: headerFont,
       size: 32pt,
-      weight: "light",
+      weight: "bold",
       fill: regularColors.darkgray,
       str,
     )
   }
   let headerLastNameStyle(str) = {
-    text(font: headerFont, size: 32pt, weight: "bold", str)
+    text(font: headerFont, size: 32pt, weight: "light", str)
   }
   let headerInfoStyle(str) = {
     text(size: headerInfoFontSize, fill: accentColor, str)
