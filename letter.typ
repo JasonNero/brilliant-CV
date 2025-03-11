@@ -48,7 +48,7 @@
 #let _letterSignature(img) = {
   set image(width: 25%)
   linebreak()
-  place(right, dx: -5%, dy: 0%, img)
+  place(left, dx: -2%, dy: 1%, img)
 }
 
 #let _letterFooter(metadata) = {
