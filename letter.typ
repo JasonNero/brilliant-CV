@@ -22,23 +22,25 @@
     text(fill: gray, size: 0.9em, smallcaps(str))
   }
   let letterDateStyle(str) = {
-    text(size: 0.9em, style: "italic", str)
+    text(size: 0.9em, str)
   }
   let letterSubjectStyle(str) = {
-    text(fill: accentColor, weight: "bold", underline(str))
+    text(fill: accentColor, weight: "bold", str)
   }
 
-  letterHeaderNameStyle(metadata.personal.first_name + " " + metadata
-    .personal
-    .last_name)
+  align(right,
+    letterHeaderNameStyle(metadata.personal.first_name + " " + metadata
+      .personal
+      .last_name)
+  )
   v(1pt)
-  letterHeaderAddressStyle(myAddress)
+  align(right, letterHeaderAddressStyle(myAddress))
   v(1pt)
-  align(right, letterHeaderNameStyle(recipientName))
+  align(left, letterHeaderNameStyle(recipientName))
   v(1pt)
-  align(right, letterHeaderAddressStyle(recipientAddress))
+  align(left, letterHeaderAddressStyle(recipientAddress))
   v(1pt)
-  letterDateStyle(date)
+  align(right, letterDateStyle(date))
   v(1pt)
   letterSubjectStyle(subject)
   linebreak()
