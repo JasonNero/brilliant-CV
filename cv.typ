@@ -471,7 +471,7 @@
   } else {
     eval(dateWidth)
   }
-  
+
   let entryA1Style(str) = {
     text(size: 10pt, weight: "bold", str)
   }
@@ -572,7 +572,7 @@
   if not metadata.layout.entry.display_entry_society_first {
     panic("display_entry_society_first must be true to use cvEntryContinued")
   }
-  
+
   let accentColor = setAccentColor(awesomeColors, metadata)
   let beforeEntrySkip = eval(
     metadata.layout.at("before_entry_skip", default: 1pt),
@@ -704,7 +704,7 @@
 }
 
 /// Add a skill tag to the CV.
-/// 
+///
 /// - skill (str | content): The skill to be displayed.
 /// -> content
 #let cvSkillTag(skill) = {

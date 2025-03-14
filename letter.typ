@@ -28,20 +28,31 @@
     text(fill: accentColor, weight: "bold", str)
   }
 
-  align(right,
-    letterHeaderNameStyle(metadata.personal.first_name + " " + metadata
-      .personal
-      .last_name)
+  table(
+    columns: (1fr, 1fr),
+    inset: 0pt,
+    stroke: none,
+    gutter: 6pt,
+    align: (x, y) => if x == 1 { right } else { left },
+    {
+      v(1pt)
+      letterHeaderNameStyle(recipientName)
+      v(1pt)
+      letterHeaderAddressStyle(recipientAddress)
+      v(1pt)
+      v(1pt)
+    },
+    {
+      letterHeaderNameStyle(metadata.personal.first_name + " " + metadata
+        .personal
+        .last_name)
+      v(1pt)
+      letterHeaderAddressStyle(myAddress)
+    },
   )
-  v(1pt)
-  align(right, letterHeaderAddressStyle(myAddress))
-  v(1pt)
-  align(left, letterHeaderNameStyle(recipientName))
-  v(1pt)
-  align(left, letterHeaderAddressStyle(recipientAddress))
-  v(1pt)
+  linebreak()
+  linebreak()
   align(right, letterDateStyle(date))
-  v(1pt)
   letterSubjectStyle(subject)
   linebreak()
   linebreak()
@@ -49,7 +60,7 @@
 
 #let _letterSignature(img) = {
   set image(width: 25%)
-  linebreak()
+  v(2pt)
   place(left, dx: -2%, dy: 1%, img)
 }
 
