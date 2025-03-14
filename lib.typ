@@ -91,7 +91,22 @@
       metadata: metadata,
       awesomeColors: awesomeColors,
     )
-  doc
+  let dateWidth = metadata.layout.at("date_width", default: none)
+  let dateWidth = if dateWidth == none {
+    defaultDateWidth(metadata.language)
+  } else {
+    eval(dateWidth)
+  }
+  table(
+    columns: (1fr, dateWidth),
+    inset: 0pt,
+    stroke: none,
+    gutter: 6pt,
+    align: (x, y) => if x == 1 { right } else { auto },
+    {
+      doc
+    }
+  )
 
   if signature != "" {
     _letterSignature(signature)
