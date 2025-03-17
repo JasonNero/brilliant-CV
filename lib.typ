@@ -3,6 +3,7 @@
 */
 
 /* Packages */
+#import "@preview/fontawesome:0.2.1": *
 #import "./cv.typ": *
 #import "./letter.typ": *
 #import "./utils/lang.typ": isNonLatin
@@ -64,6 +65,10 @@
     let nonLatinFont = metadata.lang.non_latin.font
     fontList.insert(2, nonLatinFont)
   }
+
+  let accentColor = setAccentColor(awesomeColors, metadata)
+  show link: set text(fill: accentColor)
+  show link: underline
 
   // Page layout
   set text(font: fontList, weight: "regular", size: 9pt)
