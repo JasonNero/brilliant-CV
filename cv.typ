@@ -295,6 +295,9 @@
     eval(dateWidth)
   }
 
+  show link: set text(fill: accentColor)
+  show link: underline
+
   let entryA1Style(str) = {
     text(size: 10pt, weight: "bold", str)
   }
@@ -663,8 +666,45 @@
     stroke: none,
     skillTypeStyle(type), skillInfoStyle(info),
   )
-  v(-6pt)
+  v(-0pt)
 }
+
+/// Add a skill to the CV using tags.
+///
+/// - type (str): The type of the skill. It is displayed on the left side.
+/// - tags (array): The tags of the skill. They are displayed on the right side.
+/// -> content
+#let cvSkillTags(type: "Type", tags: array) = {
+  let skillTypeStyle(str) = {
+    align(right, text(size: 10pt, weight: "bold", str))
+  }
+  let skillTagStyle(str) = {
+    align(center, text(size: 10pt, weight: "regular", str))
+  }
+  let skillTagsStyle(array) = {
+    for tag in array {
+      box(
+        inset: (x: 0.25em),
+        outset: (y: 0.25em),
+        fill: regularColors.subtlegray,
+        radius: 3pt,
+        skillTagStyle(tag),
+      )
+      h(5pt)
+
+    }
+  }
+
+  table(
+    columns: (17%, 1fr),
+    inset: 0pt,
+    column-gutter: 10pt,
+    stroke: none,
+    skillTypeStyle(type), skillTagsStyle(tags),
+  )
+  v(-0pt)
+}
+
 
 /// Add a skill with a level to the CV.
 ///
@@ -684,7 +724,7 @@
     text(str)
   }
   let skillLevelStyle(str) = {
-    set text(size: 10pt, fill: regularColors.darkgray)
+    set text(size: 8pt, fill: regularColors.darkgray)
     for x in range(0, level) {
       [#fa-icon("circle", solid: true) ]
     }
@@ -700,7 +740,7 @@
     stroke: none,
     skillTypeStyle(type), skillLevelStyle(level), skillInfoStyle(info),
   )
-  v(-6pt)
+  v(-0pt)
 }
 
 /// Add a skill tag to the CV.
