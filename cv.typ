@@ -673,8 +673,12 @@
 ///
 /// - type (str): The type of the skill. It is displayed on the left side.
 /// - tags (array): The tags of the skill. They are displayed on the right side.
+/// - metadata (array): (optional) the metadata read from the TOML file.
 /// -> content
-#let cvSkillTags(type: "Type", tags: array) = {
+#let cvSkillTags(type: "Type", tags: array, metadata: metadata) = {
+  let beforeEntrySkip = eval(
+    metadata.layout.at("before_entry_skip", default: 1pt),
+  )
   let skillTypeStyle(str) = {
     align(right, text(size: 10pt, weight: "bold", str))
   }
@@ -684,8 +688,8 @@
   let skillTagsStyle(array) = {
     for tag in array {
       box(
-        inset: (x: 0.25em),
-        outset: (y: 0.25em),
+        inset: (x: 0.5em),
+        outset: (y: 0.5em),
         fill: regularColors.subtlegray,
         radius: 3pt,
         skillTagStyle(tag),
@@ -695,6 +699,10 @@
     }
   }
 
+  show table: set par(leading: 1.5em)
+  v(beforeEntrySkip)
+  v(beforeEntrySkip)
+
   table(
     columns: (17%, 1fr),
     inset: 0pt,
@@ -702,7 +710,7 @@
     stroke: none,
     skillTypeStyle(type), skillTagsStyle(tags),
   )
-  v(-0pt)
+  // v(4pt)
 }
 
 
