@@ -683,7 +683,7 @@
     align(right, text(size: 10pt, weight: "bold", str))
   }
   let skillTagStyle(str) = {
-    align(center, text(size: 10pt, weight: "regular", str))
+    align(center, text(size: 8pt, weight: "regular", str))
   }
   let skillTagsStyle(array) = {
     for tag in array {
