@@ -113,6 +113,8 @@
           // Adds hyperlinks
           if k == "email" {
             link("mailto:" + v)[#v]
+          } else if k == "phone" {
+            link("tel:" + v)[#v]
           } else if k == "linkedin" {
             link("https://www.linkedin.com/in/" + v)[#v]
           } else if k == "github" {
