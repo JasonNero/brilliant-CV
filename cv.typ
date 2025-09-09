@@ -177,16 +177,16 @@
 
   if hasPhoto {
     makeHeader(
-      makeHeaderNameSection(),
       makeHeaderPhotoSection(),
-      (auto, 20%),
+      makeHeaderNameSection(),
+      (20%, auto),
       align,
     )
   } else {
     makeHeader(
-      makeHeaderNameSection(),
       makeHeaderPhotoSection(),
-      (auto, 0%),
+      makeHeaderNameSection(),
+      (0%, auto),
       align,
     )
   }
